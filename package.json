@@ -1,6 +1,6 @@
 {
   "name": "fex",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Front-End Development Toolkit",
   "main": "fex.js",
   "scripts": {
@@ -8,9 +8,13 @@
   },
   "repository": {
     "type": "git",
-    "url": "#"
+    "url": "https://github.com/hwangzhiming/fex.git"
   },
-  "author": "Alex Huang",
+  "author":{
+    "name":"hwangzhiming",
+    "email":"hwangzhiming@gmail.com",
+    "url":"http://www.topming.com"
+  },
   "license": "MIT",
   "dependencies": {
     "colors": "~1.0.3",

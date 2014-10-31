@@ -23,13 +23,6 @@ program
   .version('0.0.1')
   .usage('[action] [options]')
 
-program.on('--help', function(){
-  console.log('  Feedback:');
-  console.log('');
-  console.log('     Alex Huang <alex.huang@software.dell.com>');
-  console.log('');
-});
-
 /* init
 --------------------------------*/
 program
