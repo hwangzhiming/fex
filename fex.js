@@ -13,6 +13,7 @@ var program = require('commander')
 , setup=require('./setup')
 , component=require('./component')
 , fex_vars=require('./vars')
+, packageConfig=require('./package.json')
 ;
 
 prompt.message = null;
@@ -20,7 +21,7 @@ prompt.delimiter = "";
 prompt.colors = false;
 
 program
-  .version('0.0.1')
+  .version(packageConfig.version)
   .usage('[action] [options]')
 
 /* init

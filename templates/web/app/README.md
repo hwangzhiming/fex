@@ -7,6 +7,7 @@
 >2. Install [bower](http://bower.io/):
 ``npm install bower -g``
 >3. cd to ``ROOT_PATH``:
+``npm run dev``
 ``npm start``
 
 ### Run tests ###
