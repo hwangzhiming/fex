@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title><%- FEXComponentFormatName %> - Jasmine Test Runner</title>
+  <link rel="stylesheet" type="text/css" href="../../../bower_components/jasmine/lib/jasmine-core/jasmine.css">
+  <script type="text/javascript" src="../../../bower_components/jquery/dist/jquery.min.js"></script>
+  <script type="text/javascript" src="../../../bower_components/jasmine/lib/jasmine-core/jasmine.js"></script>
+  <script type="text/javascript" src="../../../bower_components/jasmine/lib/jasmine-core/jasmine-html.js"></script>
+  <script type="text/javascript" src="../../../bower_components/jasmine/lib/jasmine-core/boot.js"></script>
+  <script type="text/javascript" src="../../../public/js/<%- appName %>.vendors.min.js"></script>
+  <script type="text/javascript" src="../../../bower_components/angular-mocks/angular-mocks.js"></script>
+  <script type="text/javascript" src="../../../public/js/<%- appName %>.app.min.js"></script>
+  <script type="text/javascript" src="<%- FEXComponentName %>_test.js"></script>
+</head>
+<body>
+  <script type="text/javascript" charset="utf-8">
+    (function(){var jasmineEnv=jasmine.getEnv();jasmineEnv.updateInterval=500;var htmlReporter=new jasmine.HtmlReporter();jasmineEnv.addReporter(htmlReporter);jasmineEnv.specFilter=function(spec){return htmlReporter.specFilter(spec);};var currentWindowOnload=window.onload;window.onload=function(){if(currentWindowOnload){currentWindowOnload();}execJasmine();};function execJasmine(){jasmineEnv.execute();}})();
+  </script>
+</body>
+</html>

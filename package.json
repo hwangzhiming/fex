@@ -1,0 +1,26 @@
+{
+  "name": "fex",
+  "version": "0.0.1",
+  "description": "Front-End Development Toolkit",
+  "main": "fex.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "#"
+  },
+  "author": "Alex Huang",
+  "license": "MIT",
+  "dependencies": {
+    "colors": "~1.0.3",
+    "commander": "~2.5.0",
+    "ejs": "^1.0.0",
+    "fs-extra": "~0.12.0",
+    "prompt": "~0.2.14",
+    "string-template": "^0.2.0"
+  },
+  "bin": {
+    "fex": "fex.js"
+  }
+}

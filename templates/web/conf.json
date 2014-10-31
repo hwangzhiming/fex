@@ -1,0 +1,104 @@
+{
+	"init":{
+
+		"source":"app/",
+
+		"mkdir":[
+			"tests/unit"
+		],
+
+		"vars":[
+			{
+			    "name": "appName",
+			    "description": "App name:",
+			    "type": "string",
+			    "default": "fexapp",
+			    "required": true
+			},
+			{
+			    "name": "moduleName",
+			    "description": "Angular module name:",
+			    "type": "string",
+			    "required": true
+			},
+			{
+			    "name": "appDescription",
+			    "description": "Description:",
+			    "type": "string",
+			    "required": true
+			},
+			{
+			    "name": "appPort",
+			    "description": "Development Port:",
+			    "type": "number",
+			    "default":8000,
+			    "required": true
+			},
+			{
+			    "name": "appVersion",
+			    "description": "Version:",
+			    "type": "string",
+			    "default":"0.0.1",
+			    "required": true
+			},
+			{
+			    "name": "authorName",
+			    "description": "Author name:",
+			    "type": "string"
+			},
+			{
+			    "name": "authorEmail",
+			    "format": "email",
+			    "description": "Author email:",
+			    "type": "string"
+			},
+			{
+			    "name": "appLicense",
+			    "description": "App license:",
+			    "type": "string"
+			}
+		],
+		"compile":{
+			"string":[
+				"coffee/app.coffee",
+				"bower.json",
+				"gulpfile.js",
+				"package.json",
+				"README.md",
+				"server.js",
+				"tests/unit/home/home_test.js"
+			],
+			"html":[
+				"src/index.html",
+				"tests/unit/home/index.html"
+			]
+		}
+	},
+
+	"components":{
+		"default":{
+			"nameFormat":"%s",
+			"template":"component/default.coffee",
+			"test":{
+				"script":"test/default_test.js",
+				"view":"test/index.html"
+			}
+		},
+		"controller":{
+			"nameFormat":"%sController",
+			"template":"component/controller.coffee",
+			"test":{
+				"script":"test/controller_test.js",
+				"view":"test/index.html"
+			}
+		},
+		"service":{
+			"nameFormat":"%sService",
+			"template":"component/service.coffee",
+			"test":{
+				"script":"test/service_test.js",
+				"view":"test/index.html"
+			}
+		}
+	}
+}
