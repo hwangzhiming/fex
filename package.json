@@ -1,6 +1,6 @@
 {
   "name": "fex",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Front-End Development Toolkit",
   "main": "fex.js",
   "scripts": {
