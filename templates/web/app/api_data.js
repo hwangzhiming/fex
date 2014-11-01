@@ -8,8 +8,8 @@ NOTE: if res is defined, fn will not fired.
 	{
 		"<Method>":{
 			"[header]":[Header dictionary,eg. {token:'123467890abcd'}],
-			"[res]":[Header dictionary,eg. {msg:'Hello!',errors:[]}],
-			"[fn]":function (params) {
+			"[res]":[Response dictionary,eg. {msg:'Hello!',errors:[]}],
+			"[fn]":function (req,res) {
 				return  { 
 					"errors":['NULL FOUNT'] 
 				};
@@ -19,7 +19,7 @@ NOTE: if res is defined, fn will not fired.
 	}
 }
 
-exsample:
+Sample:
 
 {
 	"/api/version_info/":
@@ -33,7 +33,8 @@ exsample:
 			
 		},
 		"post":{
-			"fn":function (params) {
+			"fn":function (req,res) {
+				res.setHeader('header-key','header-value');
 				return  { 
 					"errors":['NULL FOUNT'] 
 				};

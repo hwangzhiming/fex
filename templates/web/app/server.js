@@ -35,7 +35,10 @@ var
 				}
 				//check if fn exists
 				else if(methodConfig.fn){
-					res.send(methodConfig.fn(req.params));
+					var rs = methodConfig.fn(req,res);
+					if(rs){
+						res.send(rs);
+					}
 				}
 			}
 		}
