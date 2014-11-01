@@ -1,7 +1,7 @@
 {
   "name": "fex",
-  "version": "0.0.6",
-  "description": "Front-End Development Toolkit",
+  "version": "0.0.8",
+  "description": "A simple command line interface that helps you develop and test Angularjs project.",
   "main": "fex.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
