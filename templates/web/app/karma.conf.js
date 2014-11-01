@@ -11,7 +11,10 @@ module.exports = function(config){
     ];
   }
   else{
-    files=['bower_components/angular/angular.min.js'];
+    files=[
+      'bower_components/angular/angular.min.js',
+      'bower_components/angular-route/angular-route.min.js'
+    ];
   }
 
   files=files.concat([
