@@ -47,7 +47,7 @@ var
 
 			}
 		}
-		
+		res.end();
 	});
 }
 , router= function(appInstance){
