@@ -69,7 +69,7 @@ module.exports=function(conf,user_vars,fex_dir,init_to_dir,init_type) {
 
     //save user vars.
     user_vars['projectType']=init_type;
-    user_vars['projectFolder']=projectFolder;
+    //user_vars['projectFolder']=projectFolder;
     fs.writeJsonSync(path.join(projectFolder,fex_vars.configFile),user_vars,'utf-8');
 
     //6. finish

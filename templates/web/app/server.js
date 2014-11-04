@@ -6,48 +6,74 @@ var
 , port={appPort}
 , fs=require('fs-extra')
 , path=require('path')
-, router= function(req,res){
-	var method=req.method.toLowerCase()
-	, url=req.url.toLowerCase()
-
-	, module = './api_data';
-
+, getApiDataConfig=function(){
+	var module = './api_data';
 	if(fs.existsSync(module+'.js')){
 
 		// remove cached module
 		delete require.cache[require.resolve(module)];
 		//reload module
-		var configs=require(module);
-		
-		var urlConfig=configs[url];
+		return require(module);
+	}
+	return null;
+}
+,setSingleRouter=function(appInstance,method,routerUrl){
 
-		if(urlConfig){
-			var methodConfig=urlConfig[method];
-			if(methodConfig){
-				if(methodConfig.header){
-					for(var key in methodConfig.header){
-						res.setHeader(key,methodConfig.header[key]);
+	appInstance[method](routerUrl,function(req,res){
+		console.log(colors.gray(' '+method+" "+routerUrl));
+		var configs = getApiDataConfig();
+		if(configs){
+			var methodsArr=configs[routerUrl];
+			if(methodsArr){
+				var conf=methodsArr[method];
+				if(conf){
+					//set headers
+					if(conf.header){
+						for(var hk in conf.header){
+							res.setHeader(hk,conf.header[hk]);
+						}
+					}			
+
+					if(conf.res){
+						res.send(conf.res);
+					}
+					else if(conf.fn){
+						var rs=conf.fn(req,res);
+						if(rs){
+							res.send(rs);
+						}
 					}
 				}
-				//check if res exists
-				if(methodConfig.res){
-					res.send(methodConfig.res);
+
+			}
+		}
+		
+	});
+}
+, router= function(appInstance){
+	var configs = getApiDataConfig();
+
+	if(configs){
+		
+		for(var routerUrl in configs){
+			
+			var methodsArr=configs[routerUrl];
+			for(var method in methodsArr){
+
+				var conf=methodsArr[method];
+
+				if(!(conf.res || conf.fn)){
+					continue;
 				}
-				//check if fn exists
-				else if(methodConfig.fn){
-					var rs = methodConfig.fn(req,res);
-					if(rs){
-						res.send(rs);
-					}
-				}
+
+				setSingleRouter(appInstance,method,routerUrl);
+				
 			}
 		}
 
 	}
-	
-	res.status(404).end();
 }
-,getFiles=function(dir,bdir) {
+, getFiles=function(dir,bdir) {
 
     var results = [];
     var baseDir=dir;
@@ -82,18 +108,10 @@ app.use('/compiled_js',express.static(__dirname + '/compiled_js'));
 
 /* Moddileware, mock api request
 ------------------------------------*/
-var api_url_reg=/^\/api\//i;
 
 app.use(function(req, res, next) {
-
-	if(req.url.match(api_url_reg)){
-		// log request url
-		console.log(colors.gray('%s %s'),req.method,req.url);
-		router(req,res);
-	}
-	else{
-		next();
-	}
+	router(app);
+	next();
 });
 
 

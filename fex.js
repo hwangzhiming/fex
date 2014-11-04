@@ -9,10 +9,10 @@ var program = require('commander')
 , path = require('path')
 , fs = require('fs-extra')
 , prompt = require('prompt')
-, fex_dir=require('./dirhelper')()
-, setup=require('./setup')
-, component=require('./component')
-, fex_vars=require('./vars')
+, fex_dir=require('./libs/dirhelper')()
+, setup=require('./libs/setup')
+, component=require('./libs/component')
+, fex_vars=require('./libs/vars')
 , packageConfig=require('./package.json')
 ;
 
@@ -94,7 +94,7 @@ program
 
 var getProjectFolder=function(cwd){
     var fexconf=fex_vars.configFile;
-    var parentCount=5;
+    var parentCount=10;
     var count=0;
     var search=function(dir) {
         if(count<parentCount){

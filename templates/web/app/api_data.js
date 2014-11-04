@@ -45,4 +45,5 @@ Sample:
 
 */
 
-module.exports={}
+module.exports=
+{}

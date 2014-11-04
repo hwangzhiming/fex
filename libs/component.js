@@ -51,7 +51,7 @@ module.exports=function(projectFolder,componentName,componentType,componentRelat
 	var testScriptTemplate=path.join(componentTemplatePath,componentConfig.test.script);
 	var testViewTemplate=path.join(componentTemplatePath,componentConfig.test.view);
 
-	var testScriptFile=path.join(unitTestFolder,util.format('%s_test.js',componentName));
+	var testScriptFile=path.join(unitTestFolder,util.format('%s_test.coffee',componentName));
 	var testViewFile=path.join(unitTestFolder,'index.html');
 
 	fs.copySync(testScriptTemplate,testScriptFile);
