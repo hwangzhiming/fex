@@ -26,6 +26,7 @@
     "gulp-sourcemaps": "*",
     "gulp-uglify": "*",
     "gulp-util": "*",
+    "gulp-watch": "^1.1.0",
     "karma": "^0.12.24",
     "karma-chrome-launcher": "^0.1.5",
     "karma-jasmine": "^0.2.3",
@@ -40,7 +41,7 @@
     "start": "node server.js ",
     
     "pretest": "npm install",
-    "test": "karma start karma.conf.js --single-run",
+    "test": "npm run build | karma start karma.conf.js --single-run",
     
     "predev": " npm install ",
     "dev": "gulp --gulpfile gulpfile.js ",

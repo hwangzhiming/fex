@@ -155,4 +155,4 @@ app.get('/',function (req,res) {
 
 app.listen(port);
 
-console.log(colors.green('- Server is listening at %s\r\n- Press ctrl + c to exit'),port);
+console.log(colors.green('- Server is listening on %s\r\n- Press ctrl + c to exit'),port);

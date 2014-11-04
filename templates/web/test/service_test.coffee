@@ -1,4 +1,4 @@
-describe "Unit:{moduleName}",()->
+describe "unit:{moduleName}",()->
     $httpBackend=null
     service=null
     

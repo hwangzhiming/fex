@@ -1,26 +1,14 @@
-var bowerConfig = require('./bower.json');
+var bowerConfig = require('./bower.json')
+, fexUtil=require('./fex.util.js')
+;
 
 module.exports = function(config){
 
-  var files=[];
+  var VendorConfig=fexUtil.getVendorConfiguration('bower_components','./vendor.conf.js','public');
 
-  if(bowerConfig.dependencies && bowerConfig.dependencies.cui){
-      files=[
-      'bower_components/cui/bin/js/cui-vendor.min.js',
-      'bower_components/cui/bin/js/cui.min.js'
-    ];
-  }
-  else{
-    files=[
-      'bower_components/angular/angular.min.js',
-      'bower_components/angular-route/angular-route.min.js'
-    ];
-  }
-
-  files=files.concat([
+  var files=VendorConfig.scripts.concat([
     'bower_components/angular-mocks/angular-mocks.js',
     'compiled_js/**/*.js',
-    'tests/unit/**/*.js'
   ]);
 
   config.set({

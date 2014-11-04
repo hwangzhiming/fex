@@ -39,7 +39,8 @@ module.exports=function(conf,user_vars,fex_dir,init_to_dir,init_type) {
     console.log(colors.info(' Copy files to project folder.'));
     var source_folder=path.join(fex_dir.templates,init_type,init_confs.source);
     fs.copySync(source_folder,projectFolder);
-
+    //2.1 rename gitignore
+    fs.renameSync(path.join(projectFolder,'gitignore'),path.join(projectFolder,'.gitignore'));
 
     //3. make directory
     console.log(colors.info(' Create some folders for project.'));

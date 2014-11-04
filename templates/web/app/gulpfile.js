@@ -10,6 +10,7 @@ var gulp = require('gulp')
 , config = require('./bower.json')
 , fs=require('fs')
 , _=require('underscore')
+, fexUtil=require('./fex.util.js')
 ;
 _.mixin(require('underscore.string').exports());
 
@@ -22,67 +23,7 @@ var app_name='{appName}'
 , publicJsFolder="public/js"
 
 , getVendorConfig=function(){
-
-    var module = './vendor.conf.js';
-
-    var getFullPathArr=function(prefix,arr){
-      var rs;
-      if(arr && _.isArray(arr) && arr.length>0){
-          rs=[];
-          for(var i in arr){
-            rs.push(prefix+ _.trim(arr[i],'/'));
-          }
-      } 
-      return rs;
-    }
-
-    var configs={
-        scripts:[],
-        stylesheets:[],
-        others:{}
-    };
-  
-    if(fs.existsSync(module)){
-
-      // remove cached module
-      delete require.cache[require.resolve(module)];
-      //reload module
-      var vendorConfigs = require(module);
-
-      for(var pkName in vendorConfigs){
-          var conf=vendorConfigs[pkName];
-          var pkFolder=bowerComponentFolder+'/'+pkName+'/';
-          if(conf.scripts){
-              var arr = getFullPathArr(pkFolder,conf.scripts);
-              if(arr){
-                configs.scripts=_.uniq(_.union(configs.scripts,arr));
-              }
-          }
-          if(conf.stylesheets){
-              var arr = getFullPathArr(pkFolder,conf.stylesheets);
-              if(arr){
-                configs.stylesheets=_.uniq(_.union(configs.stylesheets,arr));
-              }
-          }
-          if(conf.others){
-              for(var src in conf.others){
-                  var 
-                    dest=publicFolder+'/'+_.trim(conf.others[src],'/')
-                  , fullSrc=[pkFolder+_.trim(src,'/')]
-                  , configDest=configs.others[dest];
-
-                  if(!configDest){
-                    configs.others[dest]=fullSrc;
-                  }
-                  else{
-                    configs.others[dest]=_.uniq(_.union(configs.others[dest],fullSrc));
-                  }
-              }
-          }
-      }
-    }
-
-    return configs;
+    return fexUtil.getVendorConfiguration(bowerComponentFolder,'./vendor.conf.js',publicFolder);
 }
 , UnionConfigs=null 
 
@@ -123,9 +64,10 @@ var app_name='{appName}'
               'coffee/*.coffee',
               'coffee/**/*.coffee'
             ],
-            tests:['tests/**/*.coffee']
+            tests:['tests/*.coffee','tests/**/*.coffee']
         }
-    }
+    },
+    views:['src/**/*.html']
 };
 
 /* clean task
@@ -166,7 +108,7 @@ gulp.task('fex:concat:js', function() {
 /* Compile task
 ---------------------------------------*/
 gulp.task('fex:compile:scss', function() { 
-  var files=PATH.compile.scss;
+  var files='src/scss/core.scss';//PATH.compile.scss;
   gulp.src(files)
     .pipe(sass())
     .pipe(concat(app_name+'.app.css'))
@@ -174,7 +116,8 @@ gulp.task('fex:compile:scss', function() {
 });
 
 gulp.task('fex:compile:scripts', function() {
-    gulp.src(PATH.compile.coffee.scripts)
+    var files=PATH.compile.coffee.scripts;
+    gulp.src(files)
       .pipe(coffee({bare:true}))
       //.pipe(uglify())
       .pipe(gulp.dest('compiled_js/scripts/'))
@@ -183,7 +126,8 @@ gulp.task('fex:compile:scripts', function() {
 });
 
 gulp.task('fex:compile:tests', function() {
-    gulp.src(PATH.compile.coffee.tests)
+    var files=PATH.compile.coffee.tests;
+    gulp.src(files)
       .pipe(coffee({bare:true}))
       .pipe(gulp.dest('compiled_js/tests/'))
 });
@@ -197,16 +141,29 @@ gulp.task('fex:concat',['fex:concat:css','fex:concat:js']);
 gulp.task('build', function(){
     runSequence('fex:clean','fex:copy','fex:concat','fex:compile',function(){
         UnionConfigs=null;
+        setupWatchs();
+        console.log('== Finished '+ (new Date()).toTimeString() +' ==');
     });
 });
 
 /* watch task
 ---------------------------------------*/
+var watchs=[];
 gulp.task('watch', function() {
-  gulp.watch(PATH.compile.coffee.scripts, ['build']);
-  gulp.watch(PATH.compile.coffee.tests, ['build']);
-  gulp.watch(PATH.compile.scss, ['build']);
+    setupWatchs();
 });
 
+var setupWatchs = function() {
+    for (var i in watchs) {
+        if(watchs[i]){
+          watchs[i].end();
+        }
+    };
+    watchs=[];
+    watchs.push(gulp.watch(PATH.compile.coffee.scripts, ['build']));
+    watchs.push(gulp.watch(PATH.compile.coffee.tests, ['build']));
+    watchs.push(gulp.watch(PATH.compile.scss, ['build']));
+    watchs.push(gulp.watch(PATH.views, ['build']));
+}
 
 gulp.task('default', ['watch','build']);

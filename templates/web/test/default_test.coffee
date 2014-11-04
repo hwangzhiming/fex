@@ -1,3 +1,3 @@
-describe "Unit:{FEXComponentFormatName}",()->
+describe "unit:{FEXComponentFormatName}",()->
 	# TODO
 	return

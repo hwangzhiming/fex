@@ -1,4 +1,4 @@
-describe "Unit:{moduleName}",()->
+describe "unit:{moduleName}",()->
     scope=null
     controller=null
     beforeEach ()->
