@@ -1,3 +1,5 @@
+'use strict'
+
 app.service "{FEXComponentFormatName}",["REST_URL","$http",'$q',(REST_URL,$http,$q)->
 	__demo:->
 		deferred = $q.defer()

@@ -141,9 +141,12 @@ gulp.task('fex:concat',['fex:concat:css','fex:concat:js']);
 gulp.task('build', function(){
     runSequence('fex:clean','fex:copy','fex:concat','fex:compile',function(){
         UnionConfigs=null;
-        setupWatchs();
         console.log('== Finished '+ (new Date()).toTimeString() +' ==');
     });
+});
+
+gulp.task('build:watch',['build'],function(){
+    setupWatchs();
 });
 
 /* watch task
@@ -160,10 +163,10 @@ var setupWatchs = function() {
         }
     };
     watchs=[];
-    watchs.push(gulp.watch(PATH.compile.coffee.scripts, ['build']));
-    watchs.push(gulp.watch(PATH.compile.coffee.tests, ['build']));
-    watchs.push(gulp.watch(PATH.compile.scss, ['build']));
-    watchs.push(gulp.watch(PATH.views, ['build']));
+    watchs.push(gulp.watch(PATH.compile.coffee.scripts, ['build:watch']));
+    watchs.push(gulp.watch(PATH.compile.coffee.tests, ['build:watch']));
+    watchs.push(gulp.watch(PATH.compile.scss, ['build:watch']));
+    watchs.push(gulp.watch(PATH.views, ['build:watch']));
 }
 
 gulp.task('default', ['watch','build']);

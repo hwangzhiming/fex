@@ -1,3 +1,5 @@
+'use strict'
+
 describe "unit:{moduleName}",()->
     scope=null
     controller=null
@@ -10,4 +12,4 @@ describe "unit:{moduleName}",()->
             scope =$rootScope.$new()
             controller=$controller 'homeController','$scope':scope
         it " $scope.demo should be FEX ",()->
-            expect(scope.demo).toBe('FEX')
+            expect(scope.demo).toBe 'FEX'

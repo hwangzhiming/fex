@@ -1,6 +1,8 @@
-describe "unit:{moduleName}",()->
-    $httpBackend=null
-    service=null
+'use strict'
+
+describe "unit:{FEXComponentType}:{moduleName}",()->
+    $httpBackend={}
+    service={}
     
     beforeEach ()->
         module "{moduleName}"

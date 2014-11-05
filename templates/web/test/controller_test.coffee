@@ -1,9 +1,9 @@
-describe "unit:{moduleName}",()->
-    scope=null
-    controller=null
-    beforeEach ()->
-        module "{moduleName}"
-        return
+'use strict'
+
+describe "unit:{FEXComponentType}:{moduleName}",()->
+    scope={}
+    controller={}
+    beforeEach module "{moduleName}"
 
     describe "{FEXComponentFormatName}",()->
         beforeEach inject ($rootScope, $controller)->

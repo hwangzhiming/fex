@@ -66,11 +66,11 @@
 				"package.json",
 				"README.md",
 				"server.js",
-				"tests/unit/home/home_test.coffee"
+				"tests/unit/controllers/home/home_test.coffee"
 			],
 			"html":[
 				"src/index.html",
-				"tests/unit/home/index.html"
+				"tests/unit/controllers/home/index.html"
 			]
 		}
 	},
@@ -95,6 +95,38 @@
 		"service":{
 			"nameFormat":"%sService",
 			"template":"component/service.coffee",
+			"test":{
+				"script":"test/service_test.coffee",
+				"view":"test/index.html"
+			}
+		},
+		"directive":{
+			"nameFormat":"%s",
+			"template":"component/directive.coffee",
+			"test":{
+				"script":"test/directive_test.coffee",
+				"view":"test/index.html"
+			}
+		},
+		"filter":{
+			"nameFormat":"%s",
+			"template":"component/filter.coffee",
+			"test":{
+				"script":"test/filter_test.coffee",
+				"view":"test/index.html"
+			}
+		},
+		"factory":{
+			"nameFormat":"%sFactory",
+			"template":"component/factory.coffee",
+			"test":{
+				"script":"test/service_test.coffee",
+				"view":"test/index.html"
+			}
+		},
+		"provider":{
+			"nameFormat":"%sProvider",
+			"template":"component/provider.coffee",
 			"test":{
 				"script":"test/service_test.coffee",
 				"view":"test/index.html"

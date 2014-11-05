@@ -1,3 +1,5 @@
+'use strict'
+
 moduleName='{moduleName}'
 app=angular.module moduleName , ["ngRoute"]
 app.constant "REST_URL",'/api'

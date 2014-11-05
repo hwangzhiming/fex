@@ -8,6 +8,17 @@ var
 , util=require('util')
 ;
 
+var SupportComponentFolderNames={
+	'controller':'controllers',
+	'default':'defaults',
+	'directive':'directives',
+	'factory':'factories',
+	'filter':'filters',
+	'provider':'providers',
+	'service':'services'
+}
+
+
 module.exports=function(projectFolder,componentName,componentType,componentRelativeDir) {
 	//user vars
 	var user_vars=require(path.join(projectFolder,fex_vars.configFile));
@@ -21,11 +32,18 @@ module.exports=function(projectFolder,componentName,componentType,componentRelat
 		console.log(colors.red(" ERROR: Unsupport component."));
 	}
 
+	var componentFolderName=SupportComponentFolderNames[componentType];
+
 	user_vars['FEXComponentName']=componentName;
+	user_vars['FEXComponentType']=componentType;
+	user_vars['FEXComponentFolderName']=componentFolderName;
 	user_vars['FEXComponentFormatName']=util.format(componentConfig.nameFormat,componentName);
 
 	//component directory
-	var componentDir=path.join(fex_dir.cwd,componentRelativeDir);
+	var componentDir=componentRelativeDir
+		? path.join(fex_dir.cwd,componentRelativeDir)
+		: path.join(projectFolder,'coffee',componentFolderName);
+
 	fs.ensureDirSync(componentDir);
 
 	//copy component coffee script
@@ -42,24 +60,27 @@ module.exports=function(projectFolder,componentName,componentType,componentRelat
 
 
 	//copy test files
-	var unitTestFolder=path.join(projectFolder,'tests/unit',componentName);
+	var unitTestFolder=path.join(projectFolder,'tests/unit',componentFolderName,componentName);
 	if(fs.existsSync(unitTestFolder)){
 		fs.removeSync(unitTestFolder);
 	}
 	fs.ensureDirSync(unitTestFolder);
 
-	var testScriptTemplate=path.join(componentTemplatePath,componentConfig.test.script);
-	var testViewTemplate=path.join(componentTemplatePath,componentConfig.test.view);
+	if(componentConfig.test){
 
-	var testScriptFile=path.join(unitTestFolder,util.format('%s_test.coffee',componentName));
-	var testViewFile=path.join(unitTestFolder,'index.html');
+		var testScriptTemplate=path.join(componentTemplatePath,componentConfig.test.script);
+		var testViewTemplate=path.join(componentTemplatePath,componentConfig.test.view);
 
-	fs.copySync(testScriptTemplate,testScriptFile);
-	compiler("string",testScriptFile,user_vars);
+		var testScriptFile=path.join(unitTestFolder,util.format('%s_test.coffee',componentName));
+		var testViewFile=path.join(unitTestFolder,'index.html');
 
-	fs.copySync(testViewTemplate,testViewFile);
-	compiler("html",testViewFile,user_vars);
+		fs.copySync(testScriptTemplate,testScriptFile);
+		compiler("string",testScriptFile,user_vars);
 
-	console.log(colors.green(' Component [ %s ] added.'),componentName);
+		fs.copySync(testViewTemplate,testViewFile);
+		compiler("html",testViewFile,user_vars);
+	}
+
+	console.log(colors.green(' component [ %s:%s ] added.'),componentType,componentName);
 
 }
