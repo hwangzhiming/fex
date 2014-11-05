@@ -41,7 +41,7 @@
     "start": "node server.js ",
     
     "pretest": "npm install",
-    "test": "npm run build | karma start karma.conf.js --single-run",
+    "test": "karma start karma.conf.js --single-run",
     
     "predev": " npm install ",
     "dev": "gulp --gulpfile gulpfile.js ",
