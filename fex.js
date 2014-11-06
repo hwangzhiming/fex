@@ -41,7 +41,7 @@ program
       var init_type="web";
 
       //var conf=require('./templates/'+init_type+'/conf.json');
-      var conf=require(path.join(fex_dir.templates, init_type,'conf.json'));
+      var conf=require(path.join(fex_dir.templates, init_type,'conf.js'));
 
       prompt.get(conf.init.vars, function(err, results) {
           try{

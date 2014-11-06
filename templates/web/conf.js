@@ -1,4 +1,4 @@
-{
+module.exports = {
 	"init":{
 
 		"source":"app/",
@@ -12,6 +12,7 @@
 			    "name": "appName",
 			    "description": "App name:",
 			    "type": "string",
+			    "pattern": /^[a-zA-Z0-9_]+$/,
 			    "default": "fexapp",
 			    "required": true
 			},
@@ -19,11 +20,13 @@
 			    "name": "moduleName",
 			    "description": "Angular module name:",
 			    "type": "string",
+			    "pattern": /^[a-zA-Z0-9_.]+$/,
 			    "required": true
 			},
 			{
 			    "name": "appDescription",
 			    "description": "Description:",
+			    "pattern": /^(?!.*\\.*$)/,
 			    "type": "string",
 			    "required": true
 			},
@@ -38,12 +41,14 @@
 			    "name": "appVersion",
 			    "description": "Version:",
 			    "type": "string",
+			    "pattern":/\d.\d.\d/,
 			    "default":"0.0.1",
 			    "required": true
 			},
 			{
 			    "name": "authorName",
 			    "description": "Author name:",
+			    "pattern": /^(?!.*\\.*$)/,
 			    "type": "string"
 			},
 			{
@@ -55,6 +60,7 @@
 			{
 			    "name": "appLicense",
 			    "description": "App license:",
+			    "pattern": /^(?!.*\\.*$)/,
 			    "type": "string"
 			}
 		],
