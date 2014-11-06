@@ -2,6 +2,7 @@
 var 
   express = require('express')
 , app = express()
+, bodyParser = require('body-parser')
 , colors=require("colors/safe")
 , port={appPort}
 , fs=require('fs-extra')
@@ -108,7 +109,7 @@ app.use('/compiled_js',express.static(__dirname + '/compiled_js'));
 
 /* Moddileware, mock api request
 ------------------------------------*/
-
+app.use(bodyParser.json())
 app.use(function(req, res, next) {
 	router(app);
 	next();
