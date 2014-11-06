@@ -1,6 +1,6 @@
 'use strict'
 
-describe "unit:{FEXComponentType}:{moduleName}",()->
+describe "unit:{moduleName}:{FEXComponentType}:{FEXComponentFormatName}",()->
     $httpBackend={}
     service={}
     

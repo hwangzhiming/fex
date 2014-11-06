@@ -1,6 +1,6 @@
 'use strict'
 
-describe 'unit:{FEXComponentType}:{FEXComponentFormatName}', ->
+describe 'unit:{moduleName}:{FEXComponentType}:{FEXComponentFormatName}', ->
 
   beforeEach module "{moduleName}"
 

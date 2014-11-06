@@ -1,5 +1,5 @@
 'use strict'
 
-describe "unit:{FEXComponentFormatName}",()->
+describe "unit:{moduleName}:{FEXComponentFormatName}",()->
 	# TODO
 	return
