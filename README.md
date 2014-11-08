@@ -1,12 +1,12 @@
-fex
+Fex
 ===
 A simple command line interface that helps you develop and test Angularjs project.
 
 Visit [Wiki](https://github.com/hwangzhiming/fex/wiki) for more informations.
 
 
-Plugin for Sublime Text 
-=======================
+Fex Plugin for Sublime Text 
+===========================
 
 Make fex much easier to use! Pleae install [sublime-text-fex](https://github.com/hwangzhiming/sublime-text-fex).
 
