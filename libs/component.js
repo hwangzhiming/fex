@@ -24,7 +24,7 @@ module.exports=function(projectFolder,componentName,componentType,componentRelat
 	var user_vars=require(path.join(projectFolder,fex_vars.configFile));
 	var componentTemplatePath= path.join(fex_dir.templates, user_vars.projectType?user_vars.projectType:'web');
 	//fex web app conf.json
-	var conf=require(path.join(componentTemplatePath,'conf.json'));
+	var conf=require(path.join(componentTemplatePath,'conf.js'));
 
 	var componentConfig=conf.components[componentType];
 
