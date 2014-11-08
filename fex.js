@@ -57,52 +57,6 @@ program
 /* add new component to project
 --------------------------------*/
 
-
-program
-  .command('add [name]')
-  .description('add new component to project')
-  .option("-d, --directory <directory>", "where to create, relative to current working directory")
-  .option("-c, --controller", " set component type to controller")
-  .option("-s, --service", " set component type to service")
-  .action(function(name,options){
-    console.log(name+' '+options);
-    var c_name=name;
-    if(!c_name){
-        console.log(colors.red("please enter a component name."));
-        return;
-    }
-
-    var c_type='default';
-    if(!(options.service && options.controller)){
-        if(options.controller){
-            c_type="controller";
-        }
-        if(options.service){
-            c_type="service";
-        }
-    }
-    
-    //relative dir
-    var c_directory=options.directory;
-    if(c_directory){
-      c_directory=c_directory.toLowerCase();
-    }
-    else{
-      c_directory="";
-    }
-
-    var projectFolder=getProjectFolder(fex_dir.cwd);
-
-    if(!projectFolder){
-      console.log(colors.red(' Error: This is not a project created by fex.'));
-      return;
-    }
-
-    component(projectFolder,c_name,c_type,c_directory);
-});
-
-
-
 var SupportComponents=['controller','default','directive','factory','filter','provider','service'];
 
 var setupCommand=function(componentName){

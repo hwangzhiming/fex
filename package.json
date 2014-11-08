@@ -1,6 +1,6 @@
 {
   "name": "fex",
-  "version": "0.0.14",
+  "version": "0.0.15",
   "description": "A simple command line interface that helps you develop and test Angularjs project.",
   "main": "fex.js",
   "scripts": {
