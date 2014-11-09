@@ -10,6 +10,6 @@ Make Fex Easier to Use
 
 Fex plugin for sublime text, please install [sublime-text-fex](https://github.com/hwangzhiming/sublime-text-fex).
 
-![](https://68vvaa.bn1301.livefilestore.com/y2pTM4wDyIq-3Lr018xErzCl5vJxjxjCyeMtdWyjBxVzksCMq8bu2kqj3D5rkJWPT6qnQn8YKJ2JSNZDKSGAhvWaKgHsuKNUR5ye2bK1XIhxsA/Screenshots.png?psid=1)
+![](https://btt8lq.bn1301.livefilestore.com/y2po3np0AVJrkaa_8jt2cD3L7q4hIKgmt0Wnc8U6NVISkm_fDldEvZ_UzsOfKGaXnXcIHsPuAgmDrFbQhyXht75xeD9p-0whf2QEa1AQqv8Yl8/Screenshots2.png?psid=1)
 
 
