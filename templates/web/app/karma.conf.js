@@ -1,10 +1,10 @@
 var bowerConfig = require('./bower.json')
-, fexUtil=require('./fex.util.js')
+, fexUtil=require('fex-util')
 ;
 
 module.exports = function(config){
 
-  var VendorConfig=fexUtil.getVendorConfiguration('bower_components','./vendor.conf.js','public');
+  var VendorConfig=fexUtil.getVendorConfiguration('bower_components',__dirname+'/vendor.conf.js','public');
 
   var files=VendorConfig.scripts.concat([
     'bower_components/angular-mocks/angular-mocks.js',

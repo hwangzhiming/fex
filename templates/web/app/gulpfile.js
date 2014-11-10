@@ -10,7 +10,7 @@ var gulp = require('gulp')
 , config = require('./bower.json')
 , fs=require('fs')
 , _=require('underscore')
-, fexUtil=require('./fex.util.js')
+, fexUtil=require('fex-util')
 ;
 _.mixin(require('underscore.string').exports());
 
@@ -23,7 +23,7 @@ var app_name='{appName}'
 , publicJsFolder="public/js"
 
 , getVendorConfig=function(){
-    return fexUtil.getVendorConfiguration(bowerComponentFolder,'./vendor.conf.js',publicFolder);
+    return fexUtil.getVendorConfiguration(bowerComponentFolder,__dirname+'/vendor.conf.js',publicFolder);
 }
 , UnionConfigs=null 
 

@@ -34,7 +34,8 @@
     "run-sequence": "*",
     "underscore": "^1.7.0",
     "underscore.string": "^2.3.3",
-    "body-parser": "^1.9.2"
+    "body-parser": "^1.9.2",
+    "fex-util": "*"
   },
   "scripts": {
     "postinstall": "bower install",
