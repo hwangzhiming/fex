@@ -1,6 +1,6 @@
 {
   "name": "fex",
-  "version": "0.0.18",
+  "version": "0.0.19",
   "description": "A simple command line interface that helps you develop and test Angularjs project.",
   "main": "fex.js",
   "scripts": {
@@ -26,5 +26,11 @@
   },
   "bin": {
     "fex": "fex.js"
-  }
+  },
+  "keywords":[
+    "angular",
+    "yeoman",
+    "fex",
+    "generator"
+  ]
 }
