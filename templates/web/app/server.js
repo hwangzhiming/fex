@@ -109,7 +109,11 @@ app.use('/compiled_js',express.static(__dirname + '/compiled_js'));
 
 /* Moddileware, mock api request
 ------------------------------------*/
+//support application/json
 app.use(bodyParser.json())
+//support application/x-www-form-urlencoded
+app.use(bodyParser.urlencoded({ extended: false }))
+
 app.use(function(req, res, next) {
 	router(app);
 	next();
