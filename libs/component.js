@@ -37,7 +37,18 @@ module.exports=function(projectFolder,componentName,componentType,componentRelat
 	user_vars['FEXComponentName']=componentName;
 	user_vars['FEXComponentType']=componentType;
 	user_vars['FEXComponentFolderName']=componentFolderName;
-	user_vars['FEXComponentFormatName']=util.format(componentConfig.nameFormat,componentName);
+
+	//has Prefix
+	var rPrefix=/^\[PREFIX\]/;
+	if(rPrefix.test(componentConfig.nameFormat)){
+		var prefix=user_vars['componentPrefix'] ? user_vars['componentPrefix'] : '';
+		var prefixFormat=componentConfig.nameFormat.replace(rPrefix,prefix);
+		newComponentName=prefix ? ( componentName[0].toUpperCase()+componentName.slice(1) ) : componentName;
+		user_vars['FEXComponentFormatName']=util.format(prefixFormat, newComponentName);
+	}
+	else{
+		user_vars['FEXComponentFormatName']=util.format(componentConfig.nameFormat,componentName);
+	}
 
 	//component directory
 	var componentDir=componentRelativeDir

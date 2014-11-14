@@ -2,5 +2,5 @@
 
 app.controller 'homeController',['$scope',
     ($scope)->
-        $scope.demo="FEX"    
+        $scope.demo= "FEX"    
 ]

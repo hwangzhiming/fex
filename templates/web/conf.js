@@ -24,6 +24,13 @@ module.exports = {
 			    "required": true
 			},
 			{
+			    "name": "componentPrefix",
+			    "description": "Angular component Prefix:",
+			    "type": "string",
+			    "pattern": /^[a-zA-Z0-9_.]+$/,
+			     "default": ""
+			},
+			{
 			    "name": "appDescription",
 			    "description": "Description:",
 			    "pattern": /^(?!.*\\.*$)/,
@@ -83,7 +90,7 @@ module.exports = {
 
 	"components":{
 		"default":{
-			"nameFormat":"%s",
+			"nameFormat":"[PREFIX]%s",
 			"template":"component/default.coffee",
 			"test":{
 				"script":"test/default_test.coffee",
@@ -91,7 +98,7 @@ module.exports = {
 			}
 		},
 		"controller":{
-			"nameFormat":"%sController",
+			"nameFormat":"[PREFIX]%sController",
 			"template":"component/controller.coffee",
 			"test":{
 				"script":"test/controller_test.coffee",
@@ -99,7 +106,7 @@ module.exports = {
 			}
 		},
 		"service":{
-			"nameFormat":"%sService",
+			"nameFormat":"[PREFIX]%sService",
 			"template":"component/service.coffee",
 			"test":{
 				"script":"test/service_test.coffee",
@@ -107,7 +114,7 @@ module.exports = {
 			}
 		},
 		"directive":{
-			"nameFormat":"%s",
+			"nameFormat":"[PREFIX]%s",
 			"template":"component/directive.coffee",
 			"test":{
 				"script":"test/directive_test.coffee",
@@ -115,7 +122,7 @@ module.exports = {
 			}
 		},
 		"filter":{
-			"nameFormat":"%s",
+			"nameFormat":"[PREFIX]%s",
 			"template":"component/filter.coffee",
 			"test":{
 				"script":"test/filter_test.coffee",
@@ -123,7 +130,7 @@ module.exports = {
 			}
 		},
 		"factory":{
-			"nameFormat":"%sFactory",
+			"nameFormat":"[PREFIX]%sFactory",
 			"template":"component/factory.coffee",
 			"test":{
 				"script":"test/service_test.coffee",
@@ -131,7 +138,7 @@ module.exports = {
 			}
 		},
 		"provider":{
-			"nameFormat":"%sProvider",
+			"nameFormat":"[PREFIX]%sProvider",
 			"template":"component/provider.coffee",
 			"test":{
 				"script":"test/service_test.coffee",
