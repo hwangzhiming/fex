@@ -2,4 +2,4 @@
 
 app.filter '{FEXComponentFormatName}', ->
     (input) ->
-      'FEX_' + input
+        'FEX_' + input

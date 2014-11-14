@@ -7,15 +7,14 @@ app.provider '{FEXComponentFormatName}', ->
 
     # Private constructor
     class HelloFex
-      @value = ->
-        _fex
+        @value = ->
+            _fex
 
-      # Public API for configuration
-      @set = (s) ->
-        _fex = s
+        # Public API for configuration
+        @set = (s) ->
+            _fex = s
 
-      # Method for instantiating
-      @$get = ->
-        new HelloFex()
-      
+        # Method for instantiating
+        @$get = ->
+            new HelloFex()
     return
