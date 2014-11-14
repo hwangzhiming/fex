@@ -1,6 +1,6 @@
 'use strict'
 
-moduleName= '{moduleName}'
+moduleName= '<%- moduleName %>'
 app= angular.module moduleName , ["ngRoute"]
 app.constant "REST_URL",'/api'
 app.config ['$locationProvider','$routeProvider',

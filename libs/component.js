@@ -67,7 +67,7 @@ module.exports=function(projectFolder,componentName,componentType,componentRelat
 	fs.copySync(componentFileTemplate,componentFile);
 
 	//compile coffee script file
-	compiler("string",componentFile,user_vars);
+	compiler(componentFile,user_vars);
 
 
 	//copy test files
@@ -86,10 +86,10 @@ module.exports=function(projectFolder,componentName,componentType,componentRelat
 		var testViewFile=path.join(unitTestFolder,'index.html');
 
 		fs.copySync(testScriptTemplate,testScriptFile);
-		compiler("string",testScriptFile,user_vars);
+		compiler(testScriptFile,user_vars);
 
 		fs.copySync(testViewTemplate,testViewFile);
-		compiler("html",testViewFile,user_vars);
+		compiler(testViewFile,user_vars);
 	}
 
 	console.log(colors.green(' component [ %s:%s ] added.'),componentType,componentName);

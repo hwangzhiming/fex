@@ -1,13 +1,13 @@
 'use strict'
 
-describe 'unit:{moduleName}:{FEXComponentType}:{FEXComponentFormatName}', ->
+describe 'unit:<%- moduleName %>:<%- FEXComponentType %>:<%- FEXComponentFormatName %>', ->
 
-    beforeEach module "{moduleName}"
+    beforeEach module "<%- moduleName %>"
 
     # initialize a new instance of the filter before each test
-    {FEXComponentFormatName} = {}
+    <%- FEXComponentFormatName} = {}
     beforeEach inject ($filter) ->
-        {FEXComponentFormatName} = $filter '{FEXComponentFormatName}'
+        <%- FEXComponentFormatName} = $filter '<%- FEXComponentFormatName %>'
 
     it 'should return the input prefixed with "FEX_', ->
         text = 'filter test'

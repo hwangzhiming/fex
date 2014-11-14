@@ -1,6 +1,6 @@
 'use strict'
 
-app.provider '{FEXComponentFormatName}', ->
+app.provider '<%- FEXComponentFormatName %>', ->
 
     # Private variables
     _fex = 'Hello Fex'

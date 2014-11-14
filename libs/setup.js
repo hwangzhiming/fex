@@ -54,15 +54,10 @@ module.exports=function(conf,user_vars,fex_dir,init_to_dir,init_type) {
     console.log(colors.info(' Setting project files.'));
     var compiles=init_confs.compile;
     if(compiles){
-      for(var t in compiles){
-          var type_confs=compiles[t];
-          if(type_confs && type_confs.length>0){
-              for(var f in type_confs){
-                  var filePath=path.join(projectFolder,type_confs[f]);
-                  if(fs.existsSync(filePath)){
-                    compiler(t.toLowerCase(),filePath,user_vars);
-                  }
-              }
+      for(var f in compiles){
+          var filePath=path.join(projectFolder,compiles[f]);
+          if(fs.existsSync(filePath)){
+            compiler(filePath,user_vars);
           }
       }
     }

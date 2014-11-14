@@ -1,6 +1,6 @@
 'use strict'
 
-app.controller '{FEXComponentFormatName}',['$scope',
+app.controller '<%- FEXComponentFormatName %>',['$scope',
     ($scope)->
             
 ]

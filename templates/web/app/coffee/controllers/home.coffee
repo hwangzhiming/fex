@@ -1,6 +1,6 @@
 'use strict'
 
-app.controller 'homeController',['$scope',
+app.controller '<%- componentPrefix ? componentPrefix+"HomeController":"homeController" %>',['$scope',
     ($scope)->
         $scope.demo= "FEX"    
 ]

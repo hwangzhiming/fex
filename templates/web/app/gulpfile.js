@@ -15,7 +15,7 @@ var gulp = require('gulp')
 _.mixin(require('underscore.string').exports());
 
 
-var app_name='{appName}'
+var app_name='<%- appName %>'
 
 , bowerComponentFolder='bower_components'
 , publicFolder="public"

@@ -1,15 +1,15 @@
 'use strict'
 
-describe "unit:{moduleName}",()->
+describe "unit:<%- moduleName %>",()->
     scope= null
     controller= null
     beforeEach ()->
-        module "{moduleName}"
+        module "<%- moduleName %>"
         return
 
-    describe "homeController",()->
+    describe '<%- componentPrefix ? componentPrefix+"HomeController":"homeController" %>',()->
         beforeEach inject ($rootScope, $controller)->
             scope = $rootScope.$new()
-            controller= $controller 'homeController','$scope':scope
+            controller= $controller '<%- componentPrefix ? componentPrefix+"HomeController":"homeController" %>','$scope':scope
         it " $scope.demo should be FEX ",()->
             expect(scope.demo).toBe 'FEX'

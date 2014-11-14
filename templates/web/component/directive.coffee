@@ -1,7 +1,7 @@
 'use strict'
 
-app.directive '{FEXComponentFormatName}', ->
+app.directive '<%- FEXComponentFormatName %>', ->
     template: '<div></div>'
     restrict: 'EA'
     link:(scope, element, attrs) ->
-      element.text '{FEXComponentFormatName} directive'
+      element.text '<%- FEXComponentFormatName %> directive'

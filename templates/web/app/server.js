@@ -4,7 +4,7 @@ var
 , app = express()
 , bodyParser = require('body-parser')
 , colors=require("colors/safe")
-, port={appPort}
+, port=<%- appPort %>
 , fs=require('fs-extra')
 , path=require('path')
 , getApiDataConfig=function(){

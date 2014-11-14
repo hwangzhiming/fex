@@ -71,21 +71,18 @@ module.exports = {
 			    "type": "string"
 			}
 		],
-		"compile":{
-			"string":[
-				"coffee/app.coffee",
-				"bower.json",
-				"gulpfile.js",
-				"package.json",
-				"README.md",
-				"server.js",
-				"tests/unit/controllers/home/home_test.coffee"
-			],
-			"html":[
-				"src/index.html",
-				"tests/unit/controllers/home/index.html"
-			]
-		}
+		"compile":[
+			"coffee/app.coffee",
+			"coffee/controllers/home.coffee",
+			"bower.json",
+			"gulpfile.js",
+			"package.json",
+			"README.md",
+			"server.js",
+			"tests/unit/controllers/home/home_test.coffee",
+			"src/index.html",
+			"tests/unit/controllers/home/index.html"
+		]
 	},
 
 	"components":{

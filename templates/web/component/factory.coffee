@@ -1,6 +1,6 @@
 'use strict'
 
-app.factory '{FEXComponentFormatName}', ->
+app.factory '<%- FEXComponentFormatName %>', ->
     # logic
     # privative things...
 

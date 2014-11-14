@@ -1,13 +1,13 @@
 {
-  "name": "{appName}",
-  "version": "{appVersion}",
+  "name": "<%- appName %>",
+  "version": "<%- appVersion %>",
   "authors": [
-    "{authorName} <{authorEmail}>"
+    "<%- authorName %> <<%- authorEmail %>>"
   ],
 
-  "description": "{appDescription}",
+  "description": "<%- appDescription %>",
 
-  "license": "{appLicense}",
+  "license": "<%- appLicense %>",
   "private": true,
   "ignore": [
     "**/.*",

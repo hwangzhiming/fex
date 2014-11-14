@@ -3,3 +3,4 @@ compiled_js/
 node_modules/
 public/
 test_results/
+npm-debug.log

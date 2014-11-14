@@ -1,13 +1,13 @@
 'use strict'
 
-describe "unit:{moduleName}:{FEXComponentType}:{FEXComponentFormatName}",()->
-    $httpBackend={}
-    service={}
+describe "unit:<%- moduleName %>:<%- FEXComponentType %>:<%- FEXComponentFormatName %>",()->
+    $httpBackend= {}
+    service= {}
     
     beforeEach ()->
-        module "{moduleName}"
-        inject ({FEXComponentFormatName},_$httpBackend_)->
-            service = {FEXComponentFormatName}
+        module "<%- moduleName %>"
+        inject (<%- FEXComponentFormatName %>,_$httpBackend_)->
+            service = <%- FEXComponentFormatName %>
             $httpBackend = _$httpBackend_
             return 
 
