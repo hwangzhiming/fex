@@ -9,7 +9,7 @@ app.config ['$locationProvider','$routeProvider',
 
         $routeProvider.when '/home', {
             templateUrl: 'views/home/index.html',
-            controller: 'homeController'
+            controller: '<%- componentPrefix ? componentPrefix+"HomeController":"homeController" %>'
         }
         
         .otherwise {redirectTo: '/home'}; 
